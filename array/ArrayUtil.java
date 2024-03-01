@@ -14,6 +14,14 @@ public class ArrayUtil {
       System.out.println();
    }
 
+   public int[] resize(int[] arr, int capacity){
+      int[] temp = new int[capacity];
+      for(int i = 0; i < arr.length; i++){
+         temp[i] = arr[i];
+      }
+      return temp;
+   }
+
    public int findMinimum(int[] arr) {
       // edge case
       if (arr == null || arr.length == 0) {
@@ -53,6 +61,20 @@ public class ArrayUtil {
          }
       }
       throw new IllegalArgumentException("Two numbers not found");
+   }
+
+   public static int findSecondMax(int[] arr) {
+      int max = Integer.MIN_VALUE;
+      int secondMax = Integer.MIN_VALUE;
+      for (int i = 0; i < arr.length; i++) {
+         if (arr[i] > max) {
+            secondMax = max;
+            max = arr[i];
+         } else if (arr[i] > secondMax && arr[i] != max) {
+            secondMax = arr[i];
+         }
+      }
+      return secondMax;
    }
 
    public static int[] twoSumII(int[] arr, int target) {
