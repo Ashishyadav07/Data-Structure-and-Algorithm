@@ -18,6 +18,11 @@ public class BinaryTree {
       }
    }
 
+   //Recursive pre order traversal
+   // - Visit the root node
+   // - Traverse the left subtree in pre order fashion
+   // - Traverse the right subtree in pre order fashion
+
    public void preOrder(TreeNode root) {
       if (root == null) {
          return;
@@ -47,6 +52,10 @@ public class BinaryTree {
          }
       }
    }
+
+   // - Traverse the left subtree in In order fashion.
+   // - Visit the root node.
+   // - Traverse the right subtree in In order fashion.
 
    public void inOrder(TreeNode root) {
       if (root == null) {
@@ -78,6 +87,11 @@ public class BinaryTree {
       }
    }
 
+
+   // - Traverse the left subtree in Post Order fashion.
+   // - Traverse the right subtree in Post Order fashion.
+   // - Visit the node.
+   
    public void postOrder(TreeNode root) {
       if (root == null) {
          return;

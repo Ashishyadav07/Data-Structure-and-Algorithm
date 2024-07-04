@@ -62,6 +62,21 @@ public class BinarySearchTree {
 
    }
 
+   public boolean isValid(TreeNode root, long min, long max) {
+      if (root == null) {
+         return true;
+      }
+      if (root.val <= min || root.val >= max) {
+         return false;
+      }
+      boolean left = isValid(root.left, min, root.val);
+      if (left) {
+         boolean right = isValid(root.right, root.val, max);
+         return right;
+      }
+      return false;
+   }
+
    public static void main(String[] args) {
       BinarySearchTree bst = new BinarySearchTree();
       bst.insert(5);

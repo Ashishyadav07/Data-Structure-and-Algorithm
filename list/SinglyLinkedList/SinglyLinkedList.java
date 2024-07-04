@@ -1,9 +1,3 @@
-//  Singly Linked List is a data structure used for storing collection of nodes and has following properties 
-//  - It contains sequence of nodes
-//  - A node has data and reference to next node in a list
-//  - First node is the head node
-//  - Last node has data and points to null
-
 package com.hubberspot.dsalgo.list;
 
 public class SinglyLinkedList {
@@ -20,6 +14,9 @@ public class SinglyLinkedList {
       }
    }
 
+
+//Print element of singly linked list
+
    public void display() {
       ListNode current = head;
       while (current != null) {
@@ -29,6 +26,8 @@ public class SinglyLinkedList {
       System.out.print("null");
       System.out.println();
    }
+
+//Length of a singly linked list
 
    public int length() {
       if (head == null) {
@@ -43,11 +42,30 @@ public class SinglyLinkedList {
       return count;
    }
 
+// Inset node at the beginning of the linked list
+
    public void insertFirst(int value) {
       ListNode newNode = new ListNode(value);
       newNode.next = head;
       head = newNode;
    }
+
+// Insert node at the end of the linked list
+
+   public void insertLast(int value) {
+      ListNode newNode = new ListNode(value);
+      if (head == null) {
+         head = newNode;
+         return;
+      }
+      ListNode current = head;
+      while (null != current.next) {
+         current = current.next;
+      }
+      current.next = newNode;
+   }
+
+//Inset node in a Singly Linked list at a given position
 
    public void insert(int position, int value) {
       // 1 -> 4 -> 5
@@ -73,19 +91,8 @@ public class SinglyLinkedList {
 
    }
 
-   public void insertLast(int value) {
-      ListNode newNode = new ListNode(value);
-      if (head == null) {
-         head = newNode;
-         return;
-      }
-      ListNode current = head;
-      while (null != current.next) {
-         current = current.next;
-      }
-      current.next = newNode;
-   }
-
+// Delete first node of a singly linked list
+ 
    public ListNode deleteFirst() {
       if (head == null) {
          return null;
@@ -95,6 +102,33 @@ public class SinglyLinkedList {
       temp.next = null;
       return temp;
    }
+
+
+//Delete last node of a singly linked list
+
+   public ListNode deleteLast() {
+      if (head == null) {
+         return head;
+      }
+
+      if (head.next == null) {
+         ListNode temp = head;
+         head = head.next;
+         return temp;
+      }
+
+      ListNode current = head;
+      ListNode previous = null;
+
+         while (current.next != null) {
+         previous = current;
+         current = current.next;
+      }
+      previous.next = null; // break the chain
+      return current;
+   }
+
+//Delete node of a singly linked list at a given position
 
    public void delete(int position) {
       // position is valid and starting from 1
@@ -114,28 +148,8 @@ public class SinglyLinkedList {
       }
    }
 
-   public ListNode deleteLast() {
-      if (head == null) {
-         return head;
-      }
-
-      if (head.next == null) {
-         ListNode temp = head;
-         head = head.next;
-         return temp;
-      }
-
-      ListNode current = head;
-      ListNode previous = null;
-
-      while (current.next != null) {
-         previous = current;
-         current = current.next;
-      }
-      previous.next = null; // break the chain
-      return current;
-   }
-
+  
+//Search an element in a singly linked list
    public boolean find(int searchKey) {
       if (head == null) {
          return false;
@@ -150,6 +164,8 @@ public class SinglyLinkedList {
       }
       return false;
    }
+
+//Reverse a singly linked list
 
    public ListNode reverse() {
       if (head == null) {
@@ -169,6 +185,9 @@ public class SinglyLinkedList {
       return previous;
    }
 
+
+//find middle node in a singly linked list
+
    public ListNode getMiddleNode() {
       if (head == null) {
          return null;
@@ -182,6 +201,8 @@ public class SinglyLinkedList {
       }
       return slowPtr;
    }
+
+//Nth node from end of singly linked list
 
    public ListNode getNthNodeFromEnd(int n) {
       if (head == null) {
@@ -212,6 +233,26 @@ public class SinglyLinkedList {
       return mainPtr;
    }
 
+  // remove duplicate from sorted singly linked list
+
+  public void removeDuplicates(){
+   if(head==null){
+      return;
+   }
+   ListNode current = head;
+   while(current != null && current.next != null){
+      if(curren.data == current.next.data){
+         current.next = current.next.next;
+      }
+      else{
+         current = current.next;
+      }
+
+   }
+  }
+
+//Insert a node in a sorted singly linked list
+
    public ListNode insertInSortedList(int value) {
       ListNode newNode = new ListNode(value);
 
@@ -231,6 +272,8 @@ public class SinglyLinkedList {
       temp.next = newNode;
       return head;
    }
+
+//Remove a given key from singly linked list
 
    public void deleteNode(int key) {
       ListNode current = head;
@@ -253,6 +296,8 @@ public class SinglyLinkedList {
       temp.next = current.next;
    }
 
+//How to detect a loop in singly linked list.
+
    public boolean containsLoop() {
       ListNode fastPtr = head;
       ListNode slowPtr = head;
@@ -267,6 +312,8 @@ public class SinglyLinkedList {
       }
       return false;
    }
+
+   //Find start of a loop in singly linked list.
 
    public ListNode startNodeInALoop() {
       ListNode fastPtr = head;
@@ -283,6 +330,8 @@ public class SinglyLinkedList {
       return null;
    }
 
+
+
    private ListNode getStartingNode(ListNode slowPtr) {
       ListNode temp = head;
       while (temp != slowPtr) {
@@ -292,6 +341,8 @@ public class SinglyLinkedList {
       return temp; // starting node of the loop
    }
 
+   //Remove loop in a singly linked list.
+   
    public void removeLoop() {
       ListNode fastPtr = head;
       ListNode slowPtr = head;
@@ -364,6 +415,19 @@ public class SinglyLinkedList {
    }
 
    public static void main(String[] args) {
+
+      SinglyLinkedList sll = new SinglyLinkedList();
+      sll.head = new ListNode(1);
+      ListNode second = new ListNode(2);
+      ListNode third = new ListNode(3);
+      ListNode fourth = new ListNode(5);
+
+      sll.head.next = second;
+      second.next = third;
+      third.next = fourth;
+
+      sll.display();
+
       SinglyLinkedList sll1 = new SinglyLinkedList();
       sll1.insertLast(1);
       sll1.insertLast(4);
@@ -382,6 +446,9 @@ public class SinglyLinkedList {
 
       SinglyLinkedList result = new SinglyLinkedList();
       result.head = merge(sll1.head, sll2.head);
+
+      
+
 
       result.display();
    }

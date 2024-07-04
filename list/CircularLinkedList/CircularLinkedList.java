@@ -42,6 +42,8 @@ public class CircularLinkedList {
       last = fourth;
    }
 
+   //Print circular linked list
+
    public void display() {
       if (last == null) {
          return;
@@ -54,6 +56,7 @@ public class CircularLinkedList {
       }
       System.out.println(first.data);
    }
+//Inset at the first node of a circular linked list
 
    public void insertFirst(int data) {
       ListNode temp = new ListNode(data);
@@ -65,7 +68,7 @@ public class CircularLinkedList {
       last.next = temp;
       length++;
    }
-
+//Insert at the last node of a circular linked list
    public void insertLast(int data) {
       ListNode temp = new ListNode(data);
       if (last == null) {
@@ -78,7 +81,7 @@ public class CircularLinkedList {
       }
       length++;
    }
-
+//remove first element of circular linked list
    public ListNode removeFirst() {
       if (isEmpty()) {
          throw new NoSuchElementException("Circular Singly Linked List is already empty");

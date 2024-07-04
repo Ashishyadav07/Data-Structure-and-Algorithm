@@ -32,6 +32,8 @@ public class DoublyLinkedList {
       return length;
    }
 
+//print doubly linked list in forward direction 
+
    public void displayForward() {
       if (head == null) {
          return;
@@ -44,6 +46,8 @@ public class DoublyLinkedList {
       }
       System.out.println("null");
    }
+
+//print doubly linked list in backward direction
 
    public void displayBackward() {
       if (head == null) {
@@ -58,6 +62,8 @@ public class DoublyLinkedList {
       System.out.println("null");
    }
 
+//insert node at the beginning of the doubly linked list
+
    public void insertFirst(int value) {
       ListNode newNode = new ListNode(value);
       if (isEmpty()) {
@@ -70,6 +76,8 @@ public class DoublyLinkedList {
       length++;
    }
 
+//inset node at the end of the doubly linked list
+
    public void insertEnd(int value) {
       ListNode newNode = new ListNode(value);
       if (isEmpty()) {
@@ -81,7 +89,7 @@ public class DoublyLinkedList {
       tail = newNode;
       length++;
    }
-
+//delete first node in a doubly linked list
    public ListNode deleteFirst() {
       if (isEmpty()) {
          throw new NoSuchElementException();
@@ -98,7 +106,7 @@ public class DoublyLinkedList {
       length--;
       return temp;
    }
-
+//delete last node in a doubly linked list
    public ListNode deleteLast() {
       if (isEmpty()) {
          throw new NoSuchElementException();
